@@ -2,4 +2,5 @@
 log/*
 tmp/**/*
 config/database.yml
+public/stored_files/**/*
 *~
