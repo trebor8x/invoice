@@ -6,6 +6,7 @@ class Invoice < ActiveRecord::Base
 	validates_presence_of :invoice_num
 	validates_numericality_of :invoice_num
 	validates_uniqueness_of :invoice_num
+	validates_presence_of :customer
 
 	named_scope :ordered, :order => 'invoice_num'
 
@@ -14,6 +15,6 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def self.new_invoice_num
-		suggested_num = Invoice.maximum(:invoice_num) + 1
+		suggested_num = (Invoice.maximum(:invoice_num) || 0) + 1
 	end
 end

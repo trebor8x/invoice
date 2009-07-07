@@ -4,6 +4,7 @@ class Customer < ActiveRecord::Base
 	validates_presence_of :customer_num
 	validates_numericality_of :customer_num
 	validates_uniqueness_of :customer_num
+	validates_presence_of :company_name
 
 	named_scope :ordered, :order => 'customer_num'
 
