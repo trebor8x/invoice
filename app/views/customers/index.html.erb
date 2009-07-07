@@ -1,0 +1,26 @@
+<h2 class="head">Kundenliste</h2>
+<div id="list">
+
+	<table>
+		<tr>
+			<th>Kundennummer</th>
+			<th>Firmenname</th>
+			<th>Telefonnummer</th>
+			<th>Email</th>
+			<th>Kontaktname</th>
+		</tr>
+
+		<% for customer in @customers %>
+			<tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+				<td><%=h customer.customer_num %></td>
+				<td><%=h customer.company_name %></td>
+				<td><%=h customer.tel_number %></td>
+				<td><%=h customer.email %></td>
+				<td><%=h customer.full_name %></td>
+				<td><%= link_to 'Zeigen', customer %></td>
+				<td><%= link_to 'Bearbeiten', edit_customer_path(customer) %></td>
+				<td><%= link_to 'Löschen', customer, :confirm => 'Sind Sie sicher?', :method => :delete %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

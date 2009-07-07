@@ -1,0 +1,82 @@
+<h2 class="head">Kontaktdaten</h2>
+<div id="list">
+	<p>
+	<b>Kundennummer:</b>
+	<%=h @customer.customer_num %>
+	</p>
+
+	<p>
+	<b>Firmenname:</b>
+	<%=h @customer.company_name %>
+	</p>
+
+	<p>
+	<b>Staat:</b>
+	<%=h @customer.state %>
+	</p>
+
+	<p>
+	<b>Stadt:</b>
+	<%=h @customer.city %>
+	</p>
+
+	<p>
+	<b>Postleitzahl:</b>
+	<%=h @customer.zipcode %>
+	</p>
+
+	<p>
+	<b>Straße:</b>
+	<%=h @customer.street %>
+	</p>
+
+	<p>
+	<b>Telefonnummer:</b>
+	<%=h @customer.tel_number %>
+	</p>
+
+	<p>
+	<b>Email:</b>
+	<%=h @customer.email %>
+	</p>
+
+	<p>
+	<b>Web:</b>
+	<%=h @customer.web %>
+	</p>
+
+	<p>
+	<b>Kontaktname:</b>
+	<%=h @customer.full_name %>
+	</p>
+
+	<%= link_to 'Bearbeiten', edit_customer_path(@customer) %> |
+	<%= link_to 'Zurück', customers_path %>
+
+	<br /><br />
+	<div id="list">
+		<h3>Rechnungsliste:</h2>
+		<table>
+			<tr>
+				<th>Rechnungsnummer</th>
+				<th>Rechnungssumme</th>
+				<th>Rechnungsdatum</th>
+				<th>Pdf</th>
+				<th>Doc</th>
+			</tr>
+
+			<% for invoice in @customer.invoices %>
+				<tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+					<td><%=h invoice.invoice_num %></td>
+					<td><%=h invoice.sum %></td>
+					<td><%=h invoice.date %></td>
+				<td><%if invoice.pdf%><%= link_to image_tag("acroread.png"), invoice.pdf.public_filename %><%end%></td>
+				<td><%if invoice.doc%><%= link_to image_tag("word.png"), invoice.doc.public_filename%><%end%></td>
+					<td><%= link_to 'Zeigen', invoice %></td>
+					<td><%= link_to 'Bearbeiten', edit_invoice_path(invoice) %></td>
+					<td><%= link_to 'Löschen', invoice, :confirm => 'Sind Sie sicher?', :method => :delete %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

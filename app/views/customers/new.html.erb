@@ -1,0 +1,55 @@
+<h2 class="head">Neuer Kunde</h2>
+<div id="list">
+	<% form_for(@customer) do |f| %>
+		<%= f.error_messages %>
+
+		<p>
+		<%= f.label :customer_num, 'Kundennummer' %><br />
+		<%= f.text_field :customer_num %>
+		</p>
+		<p>
+		<%= f.label :company_name, 'Firmenname' %><br />
+		<%= f.text_field :company_name %>
+		</p>
+		<p>
+		<%= f.label :state, 'Staat' %><br />
+		<%= f.text_field :state %>
+		</p>
+		<p>
+		<%= f.label :city, 'Stadt' %><br />
+		<%= f.text_field :city %>
+		</p>
+		<p>
+		<%= f.label :zipcode, 'Postleitzahl' %><br />
+		<%= f.text_field :zipcode %>
+		</p>
+		<p>
+		<%= f.label :street, 'Straße' %><br />
+		<%= f.text_field :street %>
+		</p>
+		<p>
+		<%= f.label :tel_number, 'Telefonnummer' %><br />
+		<%= f.text_field :tel_number %>
+		</p>
+		<p>
+		<%= f.label :email %><br />
+		<%= f.text_field :email %>
+		</p>
+		<p>
+		<%= f.label :web %><br />
+		<%= f.text_field :web %>
+		</p>
+		<p>
+		<%= f.label :contact_prename, 'Kontakt-Vorname' %><br />
+		<%= f.text_field :contact_prename %>
+		</p>
+		<p>
+		<%= f.label :contact_surname, 'Kontakt-Nachname' %><br />
+		<%= f.text_field :contact_surname %>
+		</p>
+		<p>
+		<%= f.submit "Anlegen" %>
+		</p>
+	<% end %>
+	<%= link_to 'Zurück', customers_path %>
+</div>

@@ -1,0 +1,38 @@
+<h2 class="head">Rechnungsdetails</h2>
+<div id="list">
+	<p>
+	<b>Rechnungsnummer:</b>
+	<%= h @invoice.invoice_num %>
+	</p>
+
+	<p>
+	<b>Rechnungsdatum:</b>
+	<%= h @invoice.date %>
+	</p>
+	<p>
+	<b>Kundennummer:</b>
+	<%= h @invoice.customer_id%>
+	</p>
+	<p>
+	<b>Rechnungssumme:</b>
+	<%= h @invoice.sum %>
+	</p>
+	<p>
+	<b>Rechnung-Pdf:</b>
+	<% if @invoice.pdf %>
+		<%= link_to(@invoice.pdf.filename, @invoice.pdf.public_filename) %>
+	<% else %>
+		---
+	<%end%>
+	</p>
+	<p>
+	<b>Rechnung-Doc:</b>
+	<% if @invoice.doc %>
+		<%= link_to(@invoice.doc.filename, @invoice.doc.public_filename) %>
+	<% else %>
+		---
+	<%end%>
+	</p>
+	<%= link_to 'Bearbeiten', edit_invoice_path(@invoice) %> |
+	<%= link_to 'Zurück', invoices_path %>
+</div>

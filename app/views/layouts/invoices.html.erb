@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<title>Rechnungssystem</title>
+		<%= stylesheet_link_tag 'invoice' %>
+	</head>
+	<body>
+		<div id="header">
+			<div id="global_links">
+				<%= render :partial => 'shared/global_links' %>
+			</div>
+			<h1>Rechnungssystem 
+				<span> Gronom Gbr </span>
+			</h1>
+			<div id="tabs">
+				<%= render :partial => 'shared/tabs' %>
+			</div>
+
+		</div>
+		<div id="main">
+			<div id="left">
+				<% if flash[:notice] %>
+					<div id="notice"><%= flash[:notice] %></div>
+				<% end %>
+
+				<% if flash[:warning] %>
+					<div id="warning"><%= flash[:warning] %></div>
+				<% end %>
+
+				<% if flash[:error] %>
+					<div id="error"><%= flash[:error] %></div>
+				<% end %>
+				<div id="screen">
+					<%= yield  %>
+				</div>
+			</div>
+			<div id="right">
+				<% if logged_in? %>
+				<h2>Sidebar</h2>
+				<ul>
+					<li> <%= link_to "Neue Rechnung", new_invoice_path %> </li>
+					<li> <%= link_to "Neuer Kunde", new_customer_path %> </li>
+				<% end %>
+			</div>
+
+			<div id="footer">
+				Rechnungssystem by Robert <br />
+				Copyright © Gronom Gbr
+			</div>
+
+		</body>
+	</html>
+

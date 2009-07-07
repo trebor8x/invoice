@@ -1,0 +1,27 @@
+<h2 class="head">Rechnungsliste</h2>
+<div id="list">
+	<table>
+		<tr>
+			<th>Rechnungsnummer</th>
+			<th>Firmenname</th>
+			<th>Rechnungssumme</th>
+			<th>Rechnungsdatum</th>
+			<th>Pdf</th>
+			<th>Doc</th>
+		</tr>
+
+		<% for invoice in @invoices %>
+			<tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+				<td><%=h invoice.invoice_num %></td>
+				<td><%= link_to invoice.customer.company_name, customer_url(invoice.customer) %></td>
+				<td><%=h invoice.sum %></td>
+				<td><%=h invoice.date %></td>
+			<td><%if invoice.pdf%><%= link_to image_tag("acroread.png"), invoice.pdf.public_filename %><%end%></td>
+			<td><%if invoice.doc%><%= link_to image_tag("word.png"), invoice.doc.public_filename%><%end%></td>
+				<td><%= link_to 'Zeigen', invoice %></td>
+				<td><%= link_to 'Bearbeiten', edit_invoice_path(invoice) %></td>
+				<td><%= link_to 'Löschen', invoice, :confirm => 'Sind Sie sicher?', :method => :delete %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  invoice_num: MyString
+  date: 2008-10-15
+  customer_id: 1
+  sum: 9.99
+
+two:
+  invoice_num: MyString
+  date: 2008-10-15
+  customer_id: 1
+  sum: 9.99
