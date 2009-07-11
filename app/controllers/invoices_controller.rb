@@ -34,14 +34,15 @@ class InvoicesController < ApplicationController
 			end
 		end
 	end
+	
 	def update
 		@invoice = Invoice.find(params[:id])
 		@pdf = Pdf.new(params[:pdf])
 		@doc = Doc.new(params[:doc])
-		if  params[:pdf]["uploaded_data"] != ""
+		if params[:pdf] && params[:pdf]["uploaded_data"] != ""
 			@invoice.pdf = @pdf
 		end
-		if  params[:doc]["uploaded_data"] != ""
+		if params[:doc] && params[:doc]["uploaded_data"] != ""
 			@invoice.doc = @doc
 		end
 		respond_to do |format|
