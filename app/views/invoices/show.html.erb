@@ -7,7 +7,7 @@
 
 	<p>
 	<b>Rechnungsdatum:</b>
-	<%= h @invoice.date %>
+	<%= l @invoice.date, :format => :long %>
 	</p>
 	<p>
 	<b>Kundennummer:</b>
@@ -15,7 +15,7 @@
 	</p>
 	<p>
 	<b>Rechnungssumme:</b>
-	<%= h @invoice.sum %>
+	<%= number_to_currency_with_euro @invoice.sum %>
 	</p>
 	<p>
 	<b>Rechnung-Pdf:</b>
