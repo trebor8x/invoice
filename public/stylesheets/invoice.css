@@ -166,6 +166,7 @@ a:hover {
 
 #list table {
 	border-collapse: collapse;
+	width: 100%;
 }
 
 #list table tr th {
@@ -176,6 +177,10 @@ a:hover {
 #list table tr td {
 	padding: 6px;
 	vertical-align: middle;
+}
+
+#list table tr .right {
+  text-align: right;
 }
 
 #list .list-line-even {
