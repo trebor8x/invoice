@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       # protection if visitor resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
       # reset session
-      self.current_user = @user # !! now logged in
+      # self.current_user = @user # !! now logged in
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!"
     else
