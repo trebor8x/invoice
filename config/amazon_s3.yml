@@ -1,0 +1,14 @@
+development:
+  bucket_name: gronom_invoice_development
+  access_key_id: 
+  secret_access_key: 
+
+test:
+  bucket_name: appname_test
+  access_key_id: 
+  secret_access_key: 
+
+production:
+  bucket_name: gronom_invoice
+  access_key_id: <%= ENV['S3_KEY'] %>
+  secret_access_key: <%= ENV['S3_SECRET'] %>
