@@ -10,7 +10,7 @@ class Invoice < ActiveRecord::Base
   validates_associated :pdf, :if => :pdf
   validates_associated :doc, :if => :doc
 
-  named_scope :ordered, :order => 'invoice_num'
+  named_scope :ordered, :order => 'invoice_num DESC'
 
   def self.find_invoices
     find(:all, :order => "invoice_num")
