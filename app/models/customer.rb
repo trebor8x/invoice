@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
 
-	has_many :invoices
+	has_many :invoices, :order => 'invoice_num DESC'
 	validates_presence_of :customer_num
 	validates_numericality_of :customer_num
 	validates_uniqueness_of :customer_num
