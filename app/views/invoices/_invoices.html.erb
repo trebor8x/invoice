@@ -13,8 +13,8 @@
     <td class="right"><%= link_to invoice.customer.company_name, customer_url(invoice.customer) %></td>
     <td class="right"><%= number_to_currency_with_euro(invoice.sum) %></td>
     <td class="right"><%= l invoice.date, :format => :long %></td>
-    <td><% if invoice.pdf%><%= link_to image_tag("acroread.png"), invoice.pdf.public_filename %><% end %></td>
-    <td><% if invoice.doc%><%= link_to image_tag("word.png"), invoice.doc.public_filename%><% end %></td>
+    <td><% if invoice.pdf%><%= link_to image_tag("acroread.png"), invoice.pdf.authenticated_s3_url %><% end %></td>
+    <td><% if invoice.doc%><%= link_to image_tag("word.png"), invoice.doc.authenticated_s3_url %><% end %></td>
     <td><%= link_to 'Zeigen', invoice %></td>
     <td><%= link_to 'Bearbeiten', edit_invoice_path(invoice) %></td>
     <td><%= link_to 'Löschen', invoice, :confirm => 'Sind Sie sicher?', :method => :delete %></td>

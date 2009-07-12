@@ -20,7 +20,7 @@
 	<p>
 	<b>Rechnung-Pdf:</b>
 	<% if @invoice.pdf %>
-		<%= link_to(@invoice.pdf.filename, @invoice.pdf.public_filename) %>
+		<%= link_to(@invoice.pdf.filename, @invoice.pdf.authenticated_s3_url) %>
 	<% else %>
 		---
 	<%end%>
@@ -28,7 +28,7 @@
 	<p>
 	<b>Rechnung-Doc:</b>
 	<% if @invoice.doc %>
-		<%= link_to(@invoice.doc.filename, @invoice.doc.public_filename) %>
+		<%= link_to(@invoice.doc.filename, @invoice.doc.authenticated_s3_url) %>
 	<% else %>
 		---
 	<%end%>
