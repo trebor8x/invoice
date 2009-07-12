@@ -15,6 +15,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def self.new_invoice_num
-		suggested_num = (Invoice.maximum(:invoice_num) || 0) + 1
+		(Invoice.maximum(:invoice_num) || 0) + 1
 	end
+	
 end

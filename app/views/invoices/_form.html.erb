@@ -1,0 +1,38 @@
+<% form_for(@invoice, :html => {:multipart => true}) do |f| %>
+<%= f.error_messages %>
+
+<p>
+  <%= f.label :invoice_num, 'Rechnungsnummer' %><br />
+  <%= f.text_field :invoice_num %>
+</p>
+<p>
+  <%= f.label :date, 'Rechnungsdatum' %><br />
+  <%= f.date_select :date %>
+</p>
+<p>
+  <%= f.label :customer_id, 'Kundenummer' %><br />
+  <%= f.select :customer_id, Customer.options_for_select %>
+</p>
+<p>
+  <%= f.label :sum, 'Rechnungssumme' %><br />
+  <%= f.text_field :sum %>
+</p>
+
+<% fields_for :pdf do |p| %>
+<p>
+  <%= p.label :uploaded_data, 'Rechnung-PDF:' %><br />
+  <%= p.file_field :uploaded_data %>
+</p>
+<% end %>
+
+<% fields_for :doc do |d| %>
+<p>
+  <%= d.label :uploaded_data, 'Rechnung-DOC:' %><br />
+  <%= d.file_field :uploaded_data %>
+</p>
+<% end %>
+
+<p>
+  <%= f.submit "Speichern" %>
+</p>
+<% end %>
