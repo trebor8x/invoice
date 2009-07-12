@@ -9,7 +9,7 @@
   </tr>
   <%- for invoice in invoices -%>
   <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-    <td class="right"><%= h invoice.invoice_num %></td>
+    <td class="right"><%= link_to h(invoice.invoice_num), invoice %></td>
     <td class="right"><%= link_to invoice.customer.company_name, customer_url(invoice.customer) %></td>
     <td class="right"><%= number_to_currency_with_euro(invoice.sum) %></td>
     <td class="right"><%= l invoice.date, :format => :long %></td>

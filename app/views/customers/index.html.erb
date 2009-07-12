@@ -14,7 +14,7 @@
     <% for customer in @customers %>
     <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
       <td><%=h customer.customer_num %></td>
-      <td><%=h customer.company_name %></td>
+      <td><%= link_to customer.company_name, customer %></td>
       <td><%=h customer.full_name %></td>
       <td><%= mail_to customer.email %></td>
       <td><%=h customer.tel_number %></td>

@@ -1,55 +1,17 @@
-<h2 class="head">Kontaktdaten</h2>
+<h2 class="head">Kontaktdaten: <%=h @customer.company_name %> (<%=h @customer.customer_num %>)</h2>
 <div id="list">
-  <p>
-    <b>Kundennummer:</b>
-    <%=h @customer.customer_num %>
-  </p>
-
-  <p>
-    <b>Firmenname:</b>
-    <%=h @customer.company_name %>
-  </p>
-
-  <p>
-    <b>Staat:</b>
-    <%=h @customer.state %>
-  </p>
-
-  <p>
-    <b>Stadt:</b>
-    <%=h @customer.city %>
-  </p>
-
-  <p>
-    <b>Postleitzahl:</b>
-    <%=h @customer.zipcode %>
-  </p>
-
-  <p>
-    <b>Straße:</b>
-    <%=h @customer.street %>
-  </p>
-
-  <p>
-    <b>Telefonnummer:</b>
-    <%=h @customer.tel_number %>
-  </p>
-
-  <p>
-    <b>Email:</b>
-    <%=h @customer.email %>
-  </p>
-
-  <p>
-    <b>Web:</b>
-    <%=h @customer.web %>
-  </p>
-
-  <p>
-    <b>Kontaktname:</b>
-    <%=h @customer.full_name %>
-  </p>
-
+  <p><strong>Kundennummer:</strong> <%=h @customer.customer_num %></p>
+  <p><strong>Firmenname:</strong> <%=h @customer.company_name %></p>
+  <p><strong>Kontaktname:</strong> <%=h @customer.full_name %></p>
+  <p><strong>Email:</strong> <%= mail_to @customer.email %></p>
+  <p><strong>Telefonnummer:</strong> <%=h @customer.tel_number %></p>
+  <p><strong>Web:</strong> <%= link_to @customer.web, @customer.web %></p>
+  
+  <br />
+  <p><strong>Straße:</strong> <%=h @customer.street %></p>
+  <p><strong>Postleitzahl:</strong> <%=h @customer.zipcode %></p>
+  <p><strong>Stadt:</strong> <%=h @customer.city %></p>
+  <p><strong>Staat:</strong> <%=h @customer.state %></p>
   <%= link_to 'Bearbeiten', edit_customer_path(@customer) %> |
   <%= link_to 'Zurück', customers_path %>
 
