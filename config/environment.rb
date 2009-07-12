@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
   # They can then be installed with "rake gems:install" on new installations.
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-  # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem "aws-s3", :lib => "aws/s3"
   config.gem "rubyist-aasm", :lib => "aasm", :source => "http://gems.github.com"
 
   # Only load the plugins named here, in the order given. By default, all plugins 

@@ -4,3 +4,4 @@ tmp/**/*
 config/database.yml
 public/stored_files/**/*
 *~
+config/amazon_s3.yml
