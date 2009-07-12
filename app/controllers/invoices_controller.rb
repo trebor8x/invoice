@@ -9,7 +9,7 @@ class InvoicesController < ApplicationController
 	end
 
 	def new
-		@invoice = Invoice.new
+		@invoice = Invoice.new(:invoice_num => Invoice.new_invoice_num)
 		@invoice.pdf = Pdf.new
 		@invoice.doc = Doc.new
 	end
