@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   include AuthenticatedSystem
   layout "invoices"
-
+  before_filter :login_required
+  
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => 'e6c69bc81619632c59a24a2e6bdbea0d'
