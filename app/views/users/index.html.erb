@@ -1,0 +1,20 @@
+<h2 class="head">Benutzer</h2>
+<div id="list">
+  <table>
+    <tr>
+      <th>Login</th>
+      <th>Email</th>
+      <th>angemeldet am</th>
+      <th colspan="2">Aktionen</th>
+    </tr>
+    <%- for user in @users -%>
+    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+      <td><%= h user.login %></td>
+      <td><%= mail_to user.email %></td>
+      <td><%= l user.created_at, :format => :long %></td>
+      <td><%= user.active? ? link_to('deaktivieren', deactivate_user_path(user), :method => :post) : link_to('aktivieren', activate_user_path(user), :method => :post) %></td>
+      <td><%= link_to 'Löschen', user, :confirm => 'Sind Sie sicher?', :method => :delete %></td>
+    </tr>
+    <%- end -%>
+  </table>
+</div>
