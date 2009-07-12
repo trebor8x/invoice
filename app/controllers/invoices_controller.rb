@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  before_filter :login_required
+  
   def index
     @invoices = Invoice.ordered
   end
