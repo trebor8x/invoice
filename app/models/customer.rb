@@ -21,4 +21,5 @@ class Customer < ActiveRecord::Base
 	def full_name
 		"#{contact_prename} #{contact_surname}"
 	end
+	
 end

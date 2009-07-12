@@ -1,4 +1,4 @@
-<h2 class="head">Rechnungsdetails</h2>
+<h2 class="head">Rechnung: <%= h @invoice.invoice_num %></h2>
 <div id="list">
 	<p>
 	<b>Rechnungsnummer:</b>
@@ -10,8 +10,8 @@
 	<%= l @invoice.date, :format => :long %>
 	</p>
 	<p>
-	<b>Kundennummer:</b>
-	<%= h @invoice.customer_id%>
+	<b>Kunde:</b>
+	<%= link_to @invoice.customer.company_name, @invoice.customer %>
 	</p>
 	<p>
 	<b>Rechnungssumme:</b>
