@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
+  include AASM
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
@@ -22,7 +23,18 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation
 
+  aasm_column :state
+  aasm_initial_state :inactive
+  aasm_state :active
+  aasm_state :inactive
 
+  aasm_event :activate do
+    transitions :to => :active, :from => [:inactive]
+  end
+
+  aasm_event :deactivate do
+    transitions :to => :inactive, :from => [:active]
+  end
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
@@ -33,7 +45,7 @@ class User < ActiveRecord::Base
   def self.authenticate(login, password)
     return nil if login.blank? || password.blank?
     u = find_by_login(login.downcase) # need to get the salt
-    u && u.authenticated?(password) ? u : nil
+    u && u.authenticated?(password) && u.active? ? u : nil
   end
 
   def login=(value)
@@ -45,7 +57,5 @@ class User < ActiveRecord::Base
   end
 
   protected
-    
-
-
+  
 end

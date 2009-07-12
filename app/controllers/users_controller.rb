@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   
+  def index
+    @users = User.all
+  end
+  
   # render new.rhtml
   def new
     @user = User.new
@@ -22,4 +26,20 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to users_path
+  end
+  
+  def deactivate
+    User.find(params[:id]).deactivate!
+    redirect_to users_path
+  end
+  
+  def activate
+    User.find(params[:id]).activate!
+    redirect_to users_path
+  end
+  
 end
