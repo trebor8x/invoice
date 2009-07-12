@@ -1,2 +1,2 @@
-aws-s3 --source http://gems.github.com
+aws-s3
 rubyist-aasm --source http://gems.github.com
