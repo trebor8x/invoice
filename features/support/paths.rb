@@ -8,8 +8,8 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
     
-    when /the homepage/
-      '/'
+    when /the homepage/ then '/'
+    when /invoice list/ then invoices_url()
     
     # Add more mappings here.
     # Here is a more fancy example:

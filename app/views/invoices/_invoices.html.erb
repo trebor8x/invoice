@@ -20,4 +20,9 @@
     <td><%= link_to 'Löschen', invoice, :confirm => 'Sind Sie sicher?', :method => :delete %></td>
   </tr>
   <%- end -%>
+  <tr>
+    <td colspan="2"></td>
+    <td class="right"><%= number_to_currency_with_euro invoices.sum(:sum) %></td>
+    <td colspan="3"></td>
+  </tr>
 </table>

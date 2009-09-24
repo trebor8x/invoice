@@ -7,6 +7,7 @@ class Invoice < ActiveRecord::Base
   validates_numericality_of :invoice_num
   validates_uniqueness_of :invoice_num
   validates_presence_of :customer
+  validates_presence_of :date
   validates_associated :pdf, :if => :pdf
   validates_associated :doc, :if => :doc
 
